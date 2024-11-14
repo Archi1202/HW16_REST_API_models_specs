@@ -15,7 +15,7 @@ import static org.hamcrest.Matchers.*;
 import static specs.UpdateUserSpecs.updateRequestSpec;
 import static specs.UpdateUserSpecs.updateResponseSpec200;
 
-@DisplayName("Test aimed to verify the Update flow for API of users")
+@DisplayName("Verification of Update flow for API")
 public class UpdateUserTests extends TestBase {
 
     @Tag("API")

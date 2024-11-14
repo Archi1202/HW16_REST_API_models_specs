@@ -15,7 +15,7 @@ import static org.hamcrest.Matchers.*;
 import static specs.CreateUserSpecs.createRequestSpec;
 import static specs.CreateUserSpecs.createResponseSpec201;
 
-@DisplayName("Test aimed to verify the Create flow for API of users")
+@DisplayName("Verification of Creation flow for API")
 public class CreateUserTests extends TestBase {
 
 

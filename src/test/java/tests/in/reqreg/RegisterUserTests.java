@@ -14,7 +14,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static specs.RegisterUserSpecs.*;
 
-@DisplayName("Verification of Register flow for API")
+@DisplayName("Verification of Registration flow for API")
 public class RegisterUserTests extends TestBase {
 
     @Tag("API")
