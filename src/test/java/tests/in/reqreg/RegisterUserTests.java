@@ -72,7 +72,7 @@ public class RegisterUserTests extends TestBase {
                     assertThat(response.getError(), is(notNullValue())));
             step("Error should have specific text", () ->
                     assertThat(response.getError(), equalTo("Note: Only defined users succeed registration")));
-    });
+        });
     }
 
     @Tag("API")

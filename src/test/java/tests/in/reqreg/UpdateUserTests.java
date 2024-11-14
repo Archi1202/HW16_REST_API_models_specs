@@ -30,9 +30,9 @@ public class UpdateUserTests extends TestBase {
                 given(updateRequestSpec)
                         .body(request)
                         .contentType(JSON)
-                .when()
+                        .when()
                         .put("/users/2")
-                .then()
+                        .then()
                         .spec(updateResponseSpec200)
                         .extract().as(UpdateUserSuccessResponseModel.class));
 

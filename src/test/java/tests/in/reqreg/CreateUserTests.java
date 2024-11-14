@@ -31,9 +31,9 @@ public class CreateUserTests extends TestBase {
                 given(createRequestSpec)
                         .body(request)
                         .contentType(JSON)
-                .when()
+                        .when()
                         .post("/users/2")
-                .then()
+                        .then()
                         .spec(createResponseSpec201)
                         .extract().as(CreateUserSuccessResponseModel.class));
 
