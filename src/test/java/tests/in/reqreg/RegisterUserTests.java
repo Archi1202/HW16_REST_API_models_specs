@@ -35,12 +35,17 @@ public class RegisterUserTests extends TestBase {
                         .extract().as(RegisterUserSuccessResponseModel.class));
 
         step("Verify that in response ", () -> {
-            assertThat("User token should not be null", response.getToken(), is(notNullValue()));
-            assertThat("User token should be alphanumeric", response.getToken().matches("^[a-zA-Z0-9]+$"), is(true));
-            assertThat("User token length should be at least 17 characters", response.getToken().length(), greaterThanOrEqualTo(17));
-            assertThat("User ID should not be null", response.getId(), is(notNullValue()));
-            assertThat("User ID should be numeric", response.getId().matches("\\d+"), is(true));
 
+            step("User token should not be null", () ->
+                    assertThat(response.getToken(), is(notNullValue())));
+            step("User token should be alphanumeric", () ->
+                    assertThat(response.getToken().matches("^[a-zA-Z0-9]+$"), is(true)));
+            step("User token length should be at least 17 characters", () ->
+                    assertThat(response.getToken().length(), greaterThanOrEqualTo(17)));
+            step("User ID should not be null", () ->
+                    assertThat(response.getId(), is(notNullValue())));
+            step("User ID should be numeric", () ->
+                    assertThat(response.getId().matches("\\d+"), is(true)));
         });
     }
 
@@ -62,9 +67,12 @@ public class RegisterUserTests extends TestBase {
                         .extract().as(RegisterUserUnsuccessfulResponseModel.class));
 
         step("Verify the error response data", () -> {
-            assertThat("Error should be presented", response.getError(), is(notNullValue()));
-            assertThat("Error should have specific text", response.getError(), equalTo("Note: Only defined users succeed registration"));
-        });
+
+            step("Error should be presented", () ->
+                    assertThat(response.getError(), is(notNullValue())));
+            step("Error should have specific text", () ->
+                    assertThat(response.getError(), equalTo("Note: Only defined users succeed registration")));
+    });
     }
 
     @Tag("API")
@@ -84,9 +92,12 @@ public class RegisterUserTests extends TestBase {
                         .spec(invalidRegisterResponseSpec400)
                         .extract().as(RegisterUserUnsuccessfulResponseModel.class));
 
-        step("Verify that response ", () -> {
-            assertThat("Error should be presented", response.getError(), is(notNullValue()));
-            assertThat("Error should have specific text", response.getError(), equalTo("Missing password"));
+        step("Verify the error response data ", () -> {
+
+            step("Error should be presented", () ->
+                    assertThat(response.getError(), is(notNullValue())));
+            step("Error should have specific text about missing password", () ->
+                    assertThat(response.getError(), equalTo("Missing password")));
         });
     }
 }
