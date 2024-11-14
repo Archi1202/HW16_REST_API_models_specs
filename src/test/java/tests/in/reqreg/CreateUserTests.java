@@ -37,7 +37,7 @@ public class CreateUserTests extends TestBase {
                         .spec(createResponseSpec201)
                         .extract().as(CreateUserSuccessResponseModel.class));
 
-        step("Verify that response ID is not null, and Name and Job match the request", () -> {
+        step("Verify that in response", () -> {
             assertThat("User ID should not be null", response.getId(), is(notNullValue()));
             assertThat("Name should match request", response.getName(), equalTo("cityslicka"));
             assertThat("Job should match request body", response.getJob(), equalTo("eve.holt@reqres.in"));

@@ -38,7 +38,7 @@ public class UpdateUserTests extends TestBase {
 
         step("Verify that has Name with Job matches the request and Updated At is not Null in response", () -> {
             assertThat("Name should match request", response.getName(), equalTo("12333"));
-            assertThat("Job should match request body", response.getJob(), equalTo("test"));
+            assertThat("Job should match request", response.getJob(), equalTo("test"));
             assertThat("there is Updated Date information in response", response.getUpdatedAt(), is(notNullValue()));
         });
     }
